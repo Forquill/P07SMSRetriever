@@ -60,9 +60,9 @@ public class FragmentFirst extends Fragment {
 
                 ContentResolver cr = getActivity().getContentResolver();
 
-                String filter = "address LIKE ?";
+                String filter = "address LIKE ? AND type LIKE ?";
 
-                String[] filterArgs = {etInput.getText().toString()};
+                String[] filterArgs = {"%" + etInput.getText().toString() + "%", "1"};
 
                 Cursor cursor = cr.query(uri, reqCols, filter, filterArgs, null);
                 String smsBody = "";
